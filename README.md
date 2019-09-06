@@ -1,2 +1,0 @@
-# vbelus
-My personal website
