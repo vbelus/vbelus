@@ -1,217 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <title>Bubble Sorting Matrix</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+</head>
 
-    <title>Hello, world!</title>
-    <style>
-      #hr-jumbotron {
-        border-top: solid 1px white;
-      }
-      .center-div {
-        padding-top: 30px;
-        margin: 0 auto;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container-flex">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input
-              class="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div id="canvas-container">
+    <!-- The text -->
+    <div id="overlay" class="fade-in">
+
+      <div class="container">
+        <div class="central-text">
+            <p>Vincent Belus</p>
         </div>
-      </nav>
-    </div>
 
-    <div class="container-flex">
-      <div
-        class="jumbotron text-center"
-        style="background-image: url(http://pureimg.com/public/uploads/large/381501816512e7hwyhni80umjudeoirh1al09cirf52wlpkavkxjn8pm2qjy6x9mojycxmr86lod6a1qcematwxyhgclo6ekpb2mgdd5atwbajia.jpg); background-size: 100%; background-repeat: no-repeat"
-      >
-        <h1 class="display-4 text-light">Welcome to ShopSushi.</h1>
-        <p class="lead text-light">
-          We prepare the best sushi, period.
-        </p>
-        <hr class="my-4" id="hr-jumbotron" />
-        <p class="text-light">
-          We really do.
-        </p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        <div class="container center-div">
-          <form>
-            <div class="form-row align-items-center">
-              <div class="col-auto">
-                <label class="sr-only" for="inlineFormInput">Name</label>
-                <input
-                  type="text"
-                  class="form-control mb-2"
-                  id="inlineFormInput"
-                  placeholder="Jane Doe"
-                />
-              </div>
-              <div class="col-auto">
-                <label class="sr-only" for="inlineFormInputGroup">Username</label>
-                <div class="input-group mb-2">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">@</div>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inlineFormInputGroup"
-                    placeholder="Username"
-                  />
-                </div>
-              </div>
-              <div class="col-auto">
-                <div class="form-check mb-2">
-                  <input class="form-check-input" type="checkbox" id="autoSizingCheck" />
-                  <label class="form-check-label text-light" for="autoSizingCheck">
-                    Remember me
-                  </label>
-                </div>
-              </div>
-              <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-2">Submit</button>
-              </div>
-            </div>
-          </form>
+
+        <!-- The icons -->
+        <div class="icons fade-in central-text">
+          <a href="https://github.com/vbelus" target="new" class="icon github" title="GitHub">
+            <svg viewBox="71 71 370 370">
+              <path
+                d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 12.3-8.9V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 1.3-11.3 18.7 1.3 28.5 19.2 28.5 19.2 16.6 28.4 43.5 20.2 54.1 15.4 1.7-12 6.5-20.2 11.8-24.9 -41.3-4.7-84.7-20.6-84.7-91.9 0-20.3 7.3-36.9 19.2-49.9 -1.9-4.7-8.3-23.6 1.8-49.2 0 0 15.6-5 51.1 19.1 14.8-4.1 30.7-6.2 46.5-6.3 15.8 0.1 31.7 2.1 46.6 6.3 35.5-24 51.1-19.1 51.1-19.1 10.1 25.6 3.8 44.5 1.8 49.2 11.9 13 19.1 29.6 19.1 49.9 0 71.4-43.5 87.1-84.9 91.7 6.7 5.8 12.8 17.1 12.8 34.4 0 24.9 0 44.9 0 51 0 4.9 3 10.7 12.4 8.9 73.8-24.6 127-94.3 127-176.4C441.9 153.9 358.6 70.7 256 70.7z" />
+            </svg>
+            <!--[if lt IE 9]><em>GitHub</em><![endif]-->
+          </a>
+
+          <a href="mailto:vincent.belus@mines-paristech.fr" class="icon mail" title="Mail">
+            <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24">
+              <title>Microsoft Outlook icon</title>
+              <path
+                d="M24 7.387v10.478c0 .23-.08.424-.238.576-.158.154-.352.23-.58.23h-8.547v-6.959l1.6 1.229c.102.085.229.126.379.126.148 0 .277-.041.389-.127L24 7.387zm-9.365-2.021h8.547c.211 0 .393.063.543.192.15.128.234.3.248.51l-7.369 5.876-1.969-1.549V5.366zM13.404.864v22.271L0 20.819V3.244L13.406.864h-.002zm-4.049 11.18c-.02-1.133-.313-2.072-.879-2.814-.555-.74-1.275-1.131-2.131-1.164-.824.033-1.529.423-2.1 1.164-.57.742-.855 1.682-.87 2.814.015 1.117.315 2.047.885 2.791.571.74 1.274 1.133 2.101 1.176.855-.035 1.574-.424 2.145-1.17.57-.748.87-1.68.885-2.797h-.036zm-3.12-2.482c.431.02.794.256 1.083.717.285.461.435 1.045.435 1.752 0 .721-.149 1.307-.435 1.771-.301.464-.66.704-1.096.704s-.795-.226-1.095-.69-.435-1.05-.435-1.754c0-.705.135-1.291.435-1.74.284-.45.646-.69 1.081-.721l.027-.039z" />
+            </svg>
+            <!--[if lt IE 9]><em>GitHub</em><![endif]-->
+          </a>
+
+          <a href="https://www.linkedin.com/in/vincent-belus-226300159/" target="new" class="icon linkedin" title="LinkedIn">
+            <svg viewBox="0 0 512 512">
+              <path
+                d="M186.4 142.4c0 19-15.3 34.5-34.2 34.5 -18.9 0-34.2-15.4-34.2-34.5 0-19 15.3-34.5 34.2-34.5C171.1 107.9 186.4 123.4 186.4 142.4zM181.4 201.3h-57.8V388.1h57.8V201.3zM273.8 201.3h-55.4V388.1h55.4c0 0 0-69.3 0-98 0-26.3 12.1-41.9 35.2-41.9 21.3 0 31.5 15 31.5 41.9 0 26.9 0 98 0 98h57.5c0 0 0-68.2 0-118.3 0-50-28.3-74.2-68-74.2 -39.6 0-56.3 30.9-56.3 30.9v-25.2H273.8z" />
+            </svg>
+            <!--[if lt IE 9]><em>LinkedIn</em><![endif]-->
+          </a>
         </div>
       </div>
     </div>
+  </div>
+  <!-- partial -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/addons/p5.dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./script.js"></script>
+</body>
 
-    <div class="container">
-      <div class="card-group">
-        <div class="card">
-          <img
-            src="https://fancysushibar.com/wp-content/uploads/2017/07/FANCY-SUSHI-ARC-EN-CIEL-1.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Fusion Sushis</h5>
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.
-            </p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://c402277.ssl.cf1.rackcdn.com/photos/14274/images/magazine_small/sushi_winter2017.jpg?1506890615"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Traditional Sushis</h5>
-            <p class="card-text">
-              This card has supporting text below as a natural lead-in to additional content.
-            </p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://static.lexpress.fr/medias_12020/w_2048,h_1146,c_crop,x_0,y_154/w_1000,h_563,c_fill,g_north/v1550742170/sushi-saumon-maki-saumon-japonais_6154396.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Other traditional Japanese dishes</h5>
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural lead-in to additional
-              content. This card has even longer content than the first to show that equal height
-              action.
-            </p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-flex" style="background-color: dimgrey">
-      <div class="jumbotron text-center">
-        <h1 class="display-4">Hello, world!</h1>
-      </div>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
 </html>

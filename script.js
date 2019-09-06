@@ -2,8 +2,8 @@ window.addEventListener('resize', setup);
 
 let size = $(window).width() * 1.2,
   sizey = $(window).height() * 1.2,
-  //density = Math.round(size/50),
-  density = 7,
+  density = Math.round(size/100),
+  //density = 7,
   noise_scale = 500,
   dot_size = size / density,
   slow = false,
@@ -17,7 +17,8 @@ let dots = [],
 function setup() {
   size = $(window).width() * 1.2;
   sizey = $(window).height() * 1.2;
-  density = 7;
+  density = Math.round(size/100);
+  //density=7;
   dot_size = size / density;
   let canvas = createCanvas(size, sizey);
   canvas.parent('canvas-container');
