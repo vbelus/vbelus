@@ -2,8 +2,9 @@ window.addEventListener('resize', setup);
 
 let size = $(window).width() * 1.2,
   sizey = $(window).height() * 1.2,
-  density = Math.round(size/100),
-  //density = 7,
+  //density = Math.round(size / 100),
+  density_param = 6,
+  density = Math.round((density_param * $(window).width()) / $(window).height()),
   noise_scale = 500,
   dot_size = size / density,
   slow = false,
@@ -17,8 +18,8 @@ let dots = [],
 function setup() {
   size = $(window).width() * 1.2;
   sizey = $(window).height() * 1.2;
-  density = Math.round(size/100);
-  //density=7;
+  //density = Math.round(size / 100);
+  density = Math.round((density_param * $(window).width()) / $(window).height());
   dot_size = size / density;
   let canvas = createCanvas(size, sizey);
   canvas.parent('canvas-container');
@@ -44,27 +45,12 @@ function initialize() {
   strokeWeight(dot_size / 2);
 }
 
-function keyPressed() {
-  if (keyCode === 32) initialize();
-}
-
 function draw() {
   if (Math.round(frameCount / frequency) % 2 == 0) size_square_borders += 0.5 / frequency;
   if (Math.round(frameCount / frequency) % 2 == 1) size_square_borders -= 0.5 / frequency;
   background(0.02, 0.2);
   dots.forEach(dot => dot.draw());
   if (frameCount % (slow ? 10 : 1) == 0) sorter.next();
-}
-
-function slowMo() {
-  slow = !slow;
-}
-
-function changeDensity(delta) {
-  density += delta;
-  density = constrain(density, 5, 25);
-  dot_size = size / density;
-  initialize();
 }
 
 function swap(i, j) {
