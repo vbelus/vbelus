@@ -1,3 +1,7 @@
+:root {
+  --red-tint: ;
+}
+
 .text {
   color: rgb(70, 70, 70);
   font-family: Helvetica;
@@ -64,7 +68,7 @@ p {
   color: white;
   font-size: calc(6vh + 6vw);
   font-family: 'Abel', sans-serif;
-  text-shadow: 3px 3px 0px rgba(63, 107, 169, 1);
+  text-shadow: 4px 4px 0px rgba(var(--red-tint), 100, 100, 1);
 }
 
 .hint {

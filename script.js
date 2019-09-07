@@ -8,8 +8,10 @@ let size = $(window).width() * 1.2,
   noise_scale = 500,
   dot_size = size / density,
   slow = false,
-  size_square_borders = 0.4,
-  frequency = 100;
+  size_square_borders = 0.3,
+  period = 30,
+  grow = true,
+  grow_rate = 3;
 
 let dots = [],
   sorter,
@@ -40,14 +42,21 @@ function initialize() {
 
   sorter = bubbleSort();
   tint = random(1);
+  document.documentElement.style.setProperty('--red-tint', tint * 255);
 
   background(0.02);
   strokeWeight(dot_size / 2);
 }
 
 function draw() {
-  if (Math.round(frameCount / frequency) % 2 == 0) size_square_borders += 0.5 / frequency;
-  if (Math.round(frameCount / frequency) % 2 == 1) size_square_borders -= 0.5 / frequency;
+  if (Math.round(frameCount % period) == 0) grow = !grow;
+  if (frameCount % grow_rate == 0) {
+    if (grow) {
+      size_square_borders += (grow_rate * 0.5) / period;
+    } else {
+      size_square_borders -= (grow_rate * 0.5) / period;
+    }
+  }
   background(0.02, 0.2);
   dots.forEach(dot => dot.draw());
   if (frameCount % (slow ? 10 : 1) == 0) sorter.next();
