@@ -36,7 +36,11 @@
   margin-top: 25vh;
   margin-left: 10em;
   margin-right: 10em;
-  background: rgba(0, 0, 0, 0.3);
+}
+
+.container-text {
+  margin-bottom: 1em;
+  background: rgba(0, 0, 0, 0.8);
   border: solid black;
   border-radius: 3em;
 }
@@ -44,8 +48,8 @@
 a {
   display: inline-block;
   position: relative;
-  height: calc(6vh + 6vw);
-  width: calc(6vh + 6vw);
+  height: calc(4vh + 4vw);
+  width: calc(4vh + 4vw);
 }
 
 #canvas-container {
@@ -66,7 +70,7 @@ p {
   margin: 0;
   font-weight: bold;
   color: white;
-  font-size: calc(6vh + 6vw);
+  font-size: calc(4vh + 4vw);
   font-family: 'Abel', sans-serif;
   text-shadow: 4px 4px 0px rgba(var(--red-tint), 100, 100, 1);
 }
@@ -102,19 +106,19 @@ canvas {
 /* fade in stuff */
 
 .fade-in {
-  animation: fadeIn ease 3s;
-  -webkit-animation: fadeIn ease 3s;
-  -moz-animation: fadeIn ease 3s;
-  -o-animation: fadeIn ease 3s;
-  -ms-animation: fadeIn ease 3s;
+  animation: fadeIn ease 5s;
+  -webkit-animation: fadeIn ease 5s;
+  -moz-animation: fadeIn ease 5s;
+  -o-animation: fadeIn ease 5s;
+  -ms-animation: fadeIn ease 5s;
 }
 
 .fade-in.icons {
-  animation: fadeIn ease 6s;
-  -webkit-animation: fadeIn ease 6s;
-  -moz-animation: fadeIn ease 6s;
-  -o-animation: fadeIn ease 6s;
-  -ms-animation: fadeIn ease 6s;
+  animation: fadeIn ease 5s;
+  -webkit-animation: fadeIn ease 5s;
+  -moz-animation: fadeIn ease 5s;
+  -o-animation: fadeIn ease 5s;
+  -ms-animation: fadeIn ease 5s;
 }
 
 @keyframes fadeIn {

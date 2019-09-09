@@ -3,7 +3,7 @@ window.addEventListener('resize', setup);
 let size = $(window).width() * 1.2,
   sizey = $(window).height() * 1.2,
   //density = Math.round(size / 100),
-  density_param = 6,
+  density_param = 15,
   density = Math.round((density_param * $(window).width()) / $(window).height()),
   noise_scale = 500,
   dot_size = size / density,
@@ -35,12 +35,10 @@ function initialize() {
   let i = 0;
   for (let x = 0; x < size; x += dot_size) {
     for (let y = 0; y < sizey; y += dot_size) {
-      dots.push(new Dot(noise(x * noise_scale, y * noise_scale), i));
+      dots.push(new Dot(Math.random()*0.8, i));
       i++;
     }
   }
-
-  sorter = bubbleSort();
   tint = random(1);
   document.documentElement.style.setProperty('--red-tint', tint * 255);
 
@@ -59,7 +57,7 @@ function draw() {
   }
   background(0.02, 0.2);
   dots.forEach(dot => dot.draw());
-  if (frameCount % (slow ? 10 : 1) == 0) sorter.next();
+  if (frameCount % (slow ? 10 : 1) == 0) bubbleSort();
 }
 
 function swap(i, j) {
@@ -70,14 +68,11 @@ function swap(i, j) {
   dots[j].saturation = 2;
 }
 
-function* bubbleSort() {
-  for (let i = 0; i < dots.length - 1; i++) {
-    for (let j = 0; j < dots.length - 1 - i; j++) {
-      if (dots[j].noise < dots[j + 1].noise) {
-        swap(j, j + 1);
-        yield;
-      }
-    }
+function bubbleSort() {
+  let i = Math.floor(Math.random() * (dots.length - 1));
+  let j = Math.floor(Math.random() * (dots.length + 1 - i)) + i - 1;
+  if (dots[i].noise < dots[j].noise) {
+    swap(i, j);
   }
 }
 
@@ -95,13 +90,8 @@ class Dot {
     const { x, y } = getxy(this.index);
     const lerp_speed = 0.3;
 
-    if (this.y == y) {
-      this.x = lerp(this.x, x, lerp_speed);
-      this.y = lerp(this.y, y, lerp_speed);
-    } else {
-      this.x = x;
-      this.y = y;
-    }
+    this.x = x;
+    this.y = y;
 
     this.saturation = lerp(this.saturation, 0.5, 0.1);
 
