@@ -103,7 +103,7 @@ body * {
 }
 
 #flip {
-  margin-top: -0.7em;
+  margin-top: -0.9em;
   font-size:2em;
   font-weight:bold;
   font-family:'Roboto';
@@ -133,14 +133,14 @@ body * {
 }
 
 @keyframes show {
-  0% {margin-top:-6em;}
-  3% {margin-top:-4.2em;}
-  33% {margin-top:-4.2em;}
-  36% {margin-top:-2em;}
-  66% {margin-top:-2em;}
-  69% {margin-top:0em;}
-  99% {margin-top:0em;}
-  100% {margin-top:-6em;}
+  0% {margin-top:-6.9em;}
+  3% {margin-top:-4.5em;}
+  33% {margin-top:-4.5em;}
+  36% {margin-top:-2.1em;}
+  66% {margin-top:-2.1em;}
+  69% {margin-top:0.05em;}
+  99% {margin-top:0.05em;}
+  100% {margin-top:-6.9em;}
 }
 
 
