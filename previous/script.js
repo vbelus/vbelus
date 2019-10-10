@@ -4,33 +4,3 @@ particlesJS("particles-js", { "particles": { "number": { "value": 160, "density"
 particlesJS.load('particles-js', 'assets/particles.json', function () {
   console.log('callback - particles.js config loaded');
 });
-
-const btn = document.querySelector("#btn");
-const bg = document.querySelector("#particles-js");
-const colorElements = document.querySelectorAll(".color-change");
-const flip = document.querySelector("#flip");
-const qualification = document.querySelector("#qualifications");
-const navElements = document.querySelectorAll("nav");
-const spanElements = document.querySelectorAll("span");
-const shine = document.querySelector("#show-off");
-
-let showCard = (event) => {
-    btn.classList.toggle("is-triggered");
-    bg.classList.toggle("night-mode");
-    shine.classList.toggle("is-hidden");
-    shine.classList.toggle("quick-toggle");
-    navElements.forEach(function(navElement) {
-      navElement.classList.toggle("night-mode");
-    });
-    flip.classList.toggle("is-hidden");
-    spanElements.forEach(function(spanElement) {
-      spanElement.classList.toggle("night-mode");
-    });
-    colorElements.forEach(function(colorElement) {
-      colorElement.classList.toggle("color-night-mode");
-    });
-    qualification.classList.toggle("is-shown");
-    
-}
-
-btn.addEventListener("click", showCard);
