@@ -163,7 +163,7 @@ p {
 }
 
 #qualifications {
-  position: fixed;
+  position: relative;
   margin-top: 5em;
   font-family:'Roboto';
   font-size: 1em;
